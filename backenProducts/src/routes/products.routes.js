@@ -1,31 +1,19 @@
 import { Router } from "express";
-import products from "../data/products.js";
-import { productsController } from "../controllers/product.controller.js";
-const router=Router()
 
+import {
+  list,
+  create,
+  update,
+  remove,
+  getOne,
+} from "../controllers/productsController.js";
 
-//recherche
-router.get("/",productsController.getProducts);
+const router = Router();
 
-//add
-router.post("/",productsController.createProduct);
+router.get("/", list);
+router.post("/", create);
+router.put("/:id", update);
+router.delete("/:id", remove);
+router.get("/:id", getOne);
 
-//delete
-router.delete("/:id", (req, res) => {
- 
-    res.json({ msg: "User supprimé avec succès" });
-});
-
-//modification
-router.put("/:id", (req, res) => {
-
-    res.json({ msg: "User modifié avec succès" });
-});
-
-router.get("/stats", (req, res) => {
-  let nombre_total = data.length;
-  console.log(nombre_total);
-  res.json({ number: nombre_total });
-});
-
-export default router
+export default router;
