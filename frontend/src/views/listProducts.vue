@@ -41,6 +41,8 @@ async function addProduct() {
 
 //fonction pour la suppression
 async function deleteProduct(id) {
+  console.log(id);
+  
   const url = `http://localhost:7000/api/products/:id=${id}`;
   const meth = "DELETE";
   await fetchData(url, meth);

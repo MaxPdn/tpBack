@@ -1,7 +1,9 @@
 import 'dotenv/config';
 import express from "express";
-import products_routes from "./routes/products.routes.js";
+
 import cors from "cors";
+import router from './routes/index.js';
+
 
 const app = express();
 app.use(express.json());
@@ -12,6 +14,6 @@ app.use(
   }),
 );
 
-app.use("/api/products", products_routes);
+app.use("/api", router);
 
 export default app;

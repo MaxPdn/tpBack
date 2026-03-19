@@ -1,8 +1,6 @@
 import app from "./app.js";
 import cors from "cors";
 import { connectDB } from "./db/connect.js";
-// import { products } from "./services/products.service.js";
-// console.log(products);
 
 const port = process.env.PORT ?? 3000;
 
